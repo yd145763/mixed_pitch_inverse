@@ -54,7 +54,7 @@ lumapi = imp.load_source("lumapi","C:\\Program Files\\Lumerical\\v241\\api\\pyth
 fdtd = lumapi.FDTD()
 
 import re
-g = "sp500_bp600_sc10_bc5_sdc300_bdc900_end"
+g = "sp600_bp600_sc2_bc2_sdc500_bdc500_end"
 
 
 def extractfromstring(symbol, filename):

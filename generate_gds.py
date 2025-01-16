@@ -7,14 +7,16 @@ Created on Wed Jan  8 14:46:36 2025
 
 import klayout.db as pya
 
-small_pitchS = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4]
-big_pitchS = [0.5,0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4]
-small_countS = [3,4,5,6,7,8,9,10]
-big_countS = [3,4,5,6,7,8,9,10]
-small_dcS = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-big_dcS = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-litho_limit = 0.1
+small_pitchS = [0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3]
+big_pitchS = [0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3]
+small_countS = [2,3,4,5,6,7,8,9,10]
+big_countS = [2,3,4,5,6,7,8,9,10]
+small_dcS = [0.3, 0.4, 0.5, 0.6, 0.7]
+big_dcS = [0.3, 0.4, 0.5, 0.6, 0.7]
+litho_limit = 0.3
+total_combination = len(small_pitchS)*len(big_pitchS)*len(small_countS)*len(big_countS)*len(small_dcS)*len(big_dcS)
 
+total_gds_count = 0
 for sp in small_pitchS:
     for bp in big_pitchS:
         for sc in small_countS:
@@ -38,6 +40,7 @@ for sp in small_pitchS:
                         
                         else:
                             print('gds will be created')
+                            total_gds_count +=1
                             filename = 'sp'+str(int(small_pitch*1000))+'_'+'bp'+str(int(big_pitch*1000))+'_'+'sc'+str(int(small_count))+'_'+'bc'+str(int(big_count))+'_'+'sdc'+str(int(small_dc*1000))+'_'+'bdc'+str(int(big_dc*1000))+'_'+'end'
                             
                             # Create a new layout
